@@ -1,0 +1,59 @@
+/*For colors we can use, directly color name, or hexadecimal system, or APIS like rgb() or rgba()
+
+rgba() ,  a is for transparency, max being 1
+ */
+
+/*with background selector we can apply a property URL, to fill the background with an image.*/
+
+/*
+body{
+	background: url(https://static.vecteezy.com/system/resources/previews/000/102/943/non_2x/world-map-silhouette-vector.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+*/
+
+h1{
+		color: #3d7de3;
+		/* alternate syntax for setting border properties
+		border-color: red;
+		border-width: 5px;
+		border-style: solid; */
+		border:2px solid rgb(0,255,0);
+}
+
+#special{
+	color: blue;
+	border: 5px solid rgb(0,0,255);
+	background: yellow
+}
+/*CSS selectors: Element, ID and class , these are the hooks that we create in html, and then we use in css
+
+	selector{
+		property: value;
+	}
+*/
+
+/*attribute selector- i am gonna style all checkboxes in a particular way*/
+
+.completed{
+	text-decoration: line-through;
+}
+
+h1{
+		color: rgb(200,0,0);
+		color: rgba(0,200,0,1);
+}
+
+div{
+	background: #80226c
+	 color:black;
+}
+
+li:nth-of-type(3){
+	background-color: red;
+}
+
+
+

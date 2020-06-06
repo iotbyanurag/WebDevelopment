@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>About Me</title>
+</head>
+<body>
+
+	<h2>To do List</h2>
+	<ul>
+		<li class="completed">
+			<input type="checkbox" checked>
+			walk rusty 
+		</li>
+		<li class="completed">
+			<input type="checkbox" checked>
+			Finish recording css
+		</li>
+
+		<!-- suppose we want to apply some special property to this last li, so we give it an id in the html as an attribute
+			and then refer it in css using
+			#Id{
+				property: value;
+			} 
+
+			we can group elemnts into a class by writing attribute class infront of them and giving it a common name.
+			then in css we slect these class elements using
+			.class_name{
+				property: value;
+			}
+		-->
+		<li id="special">
+			<input type="checkbox">
+			do groceries
+		</li>
+	</ul>
+<!--
+This is an example of inline css, we can seperate the style sheet from html, using he link element. 
+<style type="text/css" media="screen">
+	h1{
+		color: red;
+}
+div{
+	 color:blue;
+}
+	
+</style>
+-->
+
+<!-- Here the href asks for the link where our styl sheet is present.-->
+
+<link rel="stylesheet" type="text/css" href="aboutMe.css">
+<div>
+<h1>What is Lorem Ipsum?</h1>
+	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
+	
+</body>
+</html>
