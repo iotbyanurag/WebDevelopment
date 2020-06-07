@@ -1,0 +1,30 @@
+h1{
+	/*margin:top,right,bottom,left*/
+	text-align:center;
+	/*margin-right: 100px;*/
+}
+/*body{
+	background:pink;
+}*/
+/*without background color the td are not visible.*/
+
+table{
+	margin:auto;
+}
+td{
+	height: 100px;
+	width: 100px;
+	/*background-color:gray; */
+}
+
+.vertical {
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	/*border-top: 1px solid black;*/
+	/*border-bottom: 1px solid black;*/
+}
+
+.horizontal {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
