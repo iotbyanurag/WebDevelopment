@@ -1,0 +1,4 @@
+1. what is the difference between 
+-> this.style.backgroundColor
+and 
+-> this.style.backgroundColor
