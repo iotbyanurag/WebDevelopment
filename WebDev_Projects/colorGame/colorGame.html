@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ColorGame</title>
     <link rel="stylesheet" href="colorGame.css">
+
 </head>
 <body>
     <!--to update the value of h1 with the chosen color we need to put a span around the RGB text and then update it from our js-->
     <h1>The Great Color <span id="colorDisplay">RGB</span>Game</h1>
-    <div>
+
+
+    <div id= "stripe">
         <span id="message"></span>
+        <button id="reset">New Colors</button>
     </div>
     <div id="container">
         <div class="square"> </div>
@@ -22,5 +26,6 @@
     </div>
 
     <script type="text/javascript" src="colorGame.js"></script>
+    
 </body>
 </html>
