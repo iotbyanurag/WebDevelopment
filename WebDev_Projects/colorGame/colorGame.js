@@ -9,52 +9,88 @@
 // ]
 
 // array is populated
-var ColorsArray = [];
-generateRandomColors_Array(6);
+NumOfColors = 6;
+var Colors = generateRandomColors_Array(NumOfColors);
 var pickedcolor = pickColor();
-// for(var i=0; i< 6; i++){
-//     console.log(ColorsArray[i]);
-// }
+
 var h1 = document.querySelector("h1");
 var squares = document.querySelectorAll(".square");
 var resetButton = document.getElementById("reset");
 var colorDisplay= document.getElementById("colorDisplay");
+var easyMode = document.getElementById("easy");
+var hardMode = document.getElementById("hard");
 
+var Message = document.getElementById("message");
+    console.log("picked color" + pickedcolor);
+    colorDisplay.textContent = pickedcolor;
+    // colors of each tile are populated 
+    for (var i=0; i<squares.length; i++){
+        //select color and apply to the squares
+        squares[i].style.backgroundColor = Colors[i];
+    
+        // add a click event listener to each of the squares
+        squares[i].addEventListener("click", select_Square);
+      
+    }
+
+easyMode.addEventListener("click", function(){
+    NumOfColors = 3;
+    easyMode.classList.add("selected");
+    hardMode.classList.remove("selected");
+
+    Colors = generateRandomColors_Array(NumOfColors);
+    console.log("colorsArray" + Colors);
+    for (var i=0; i< squares.length; i++){
+        if(Colors[i]){
+            squares[i].style.backgroundColor = Colors[i];
+        }
+        else{
+            squares[i].style.display = "none";   
+        }
+        //select color and apply to the squares
+    } 
+
+    pickedcolor= pickColor();
+    colorDisplay.textContent = pickedcolor;
+});
+
+hardMode.addEventListener("click", function(){
+    NumOfColors = 6;
+    hardMode.classList.add("selected");
+    easyMode.classList.remove("selected");
+    Colors = generateRandomColors_Array(NumOfColors);
+   
+    for (var i=0; i<squares.length; i++){
+        //select color and apply to the squares
+        squares[i].style.display = "block"
+        squares[i].style.backgroundColor = Colors[i];
+    }    
+    pickedcolor= pickColor();
+    colorDisplay.textContent = pickedcolor;
+});
+
+
+
+// reset button has to behave differently in different modes:
+// in EASY mode, we need to geenerate only 3 random list of colors 
+// whereas in HARD mode we need to generate 6 colors.
 resetButton.addEventListener("click", function(){
-    ColorsArray = [];
-    generateRandomColors_Array(6);
+    Colors = generateRandomColors_Array(NumOfColors);
+   // console.log(GameMode + Colors);
     pickedcolor = pickColor();
     colorDisplay.textContent = pickedcolor;
     h1.style.background = "#232323"
     for (var i=0; i<squares.length; i++){
         //select color and apply to the squares
-        squares[i].style.backgroundColor = ColorsArray[i];
+        squares[i].style.backgroundColor = Colors[i];
     }
     // alert("connected");
 }
 );
 
 
-// any random color is picked.
-
-
-//console.log("picked color" +pickedcolor);
-
-
-var Message = document.getElementById("message");
-//console.log("picked color" + pickedcolor);
-colorDisplay.textContent = pickedcolor;
-
-// colors of each tile are populated 
-for (var i=0; i<squares.length; i++){
-    //select color and apply to the squares
-    squares[i].style.backgroundColor = ColorsArray[i];
-
-    // add a click event listener to each of the squares
-    squares[i].addEventListener("click", select_Square);
-  
-}
-
+// any random color is picked
+//console.log("picked color" +pickedcolor)
 
 function onChangeColor(){
     // ColorsArray = [];
@@ -100,15 +136,16 @@ function changeColorOnMatch(color){
 }
 
 function generateRandomColors_Array(num){
-  
+  var ColorsArray = [];
     for (var i=0; i<num; i++){
-       ColorsArray.push(randomiseColors()) 
+       ColorsArray.push(randomiseColors()); 
     }
+    return ColorsArray;
 }
 
 function pickColor(){
-    var random =Math.floor(Math.random() * ColorsArray.length);
-    return ColorsArray[random];
+    var random =Math.floor(Math.random() * Colors.length);
+    return Colors[random];
 }
 
 function randomiseColors(){

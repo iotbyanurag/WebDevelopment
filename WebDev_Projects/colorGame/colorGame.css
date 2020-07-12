@@ -31,3 +31,7 @@ span{
     color: black
     
 }
+
+.selected{
+    background: blue;
+}
