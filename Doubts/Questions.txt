@@ -2,3 +2,9 @@
 -> this.style.backgroundColor
 and 
 -> this.style.backgroundColor
+
+
+2. Understand the BOX Model in CSS and properties like margin, padding etc.
+
+3. What is line-height
+4. When do we use px and when do we don't

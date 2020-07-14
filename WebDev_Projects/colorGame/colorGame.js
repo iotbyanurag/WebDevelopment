@@ -1,12 +1,3 @@
-// var colors = [
-//     "rgb(255, 0, 0)",
-//     "rgb(0, 255, 0)",
-//     "rgb(0, 0, 255)",
-//     "rgb(255, 255, 0)",
-//     "rgb(255, 0, 255)",
-//     "rgb(25, 255, 0)",
-//     "rgb(25, 0, 255)"
-// ]
 
 // array is populated
 NumOfColors = 6;
@@ -19,9 +10,9 @@ var resetButton = document.getElementById("reset");
 var colorDisplay= document.getElementById("colorDisplay");
 var easyMode = document.getElementById("easy");
 var hardMode = document.getElementById("hard");
-
 var Message = document.getElementById("message");
-    console.log("picked color" + pickedcolor);
+
+
     colorDisplay.textContent = pickedcolor;
     // colors of each tile are populated 
     for (var i=0; i<squares.length; i++){
@@ -69,17 +60,21 @@ hardMode.addEventListener("click", function(){
     colorDisplay.textContent = pickedcolor;
 });
 
-
-
-// reset button has to behave differently in different modes:
+// reset button i.e. NEW COLORS/PLAY AGAIN has to behave differently in different modes:
 // in EASY mode, we need to geenerate only 3 random list of colors 
 // whereas in HARD mode we need to generate 6 colors.
 resetButton.addEventListener("click", function(){
+    Message.textContent = "";
+    resetButton.textContent = "New Colors";
+    h1.style.background="steelblue";
+    console.log("h1 color" + h1.style.background);
+
+    console.log("clicked the NEW COLOR BUTTON");
     Colors = generateRandomColors_Array(NumOfColors);
    // console.log(GameMode + Colors);
     pickedcolor = pickColor();
     colorDisplay.textContent = pickedcolor;
-    h1.style.background = "#232323"
+    
     for (var i=0; i<squares.length; i++){
         //select color and apply to the squares
         squares[i].style.backgroundColor = Colors[i];
@@ -87,42 +82,26 @@ resetButton.addEventListener("click", function(){
     // alert("connected");
 }
 );
-
-
 // any random color is picked
-//console.log("picked color" +pickedcolor)
-
-function onChangeColor(){
-    // ColorsArray = [];
-    // generateRandomColors_Array(6);
-    // for (var i=0; i<squares.length; i++){
-    //     //select color and apply to the squares
-    //      squares[i].style.backgroundColor = ColorsArray[i];
-    //     // for (var i=0; i< ColorsArray.length; i++){
-    //     //     console.log(ColorsArray[i]);
-    //     // }
-    // }
-    alert("connected");
-}
-
 
 // using this keyword you can refer to the item that was clicked 
 // passed the event handler to the event listener.
 
  function select_Square(){
-   // alert(this.style.backgroundColor);
     var clickedColor = this.style.backgroundColor;
-    //console.log("clicked" + clickedColor);
     if(clickedColor === pickedcolor){
-        // alert("CORRECT");
+
+        // if the user selects the correct color.
         Message.textContent = "Correct";
         changeColorOnMatch(clickedColor);
         h1.style.background = clickedColor;
-        resetButton.textContent = "PLAY AGAIN?";
+        // this is the same button, only the text content changes.
+        resetButton.textContent = "PLAY AGAIN?";  
     }
     else{
        this.style.background = "#232323";
-       Message.textContent = "Try Again";   
+       Message.textContent = "Try Again"; 
+       console.log("Message Content" + Message.textContent);  
        //alert("Wrong"); 
        resetButton.textContent = "New Colors";
     } 
